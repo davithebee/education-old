@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<script>
+
+	var move = 5;
+	var height = 70;
+
+	function rysuj(){
+		var canvas = document.getElementById("n1");
+		ctx = canvas.getContext("2d");
+		ctx.fillRect(move,75,10,height);
+		move = move+20;
+		height = height-10;
+	}
+</script>
+<style>
+body{
+	background-color:darkblue;
+	color:white;
+	width: 100vw;
+	height: 100vh;
+	box-sizing:border-box;
+}
+
+#n1{
+	width:60%;
+	height:60%;
+	display:block;
+	box-sizing:border-box;
+	border:1px white solid;
+	background:linear-gradient(gray, yellow, gray)
+}
+</style>
+</head>
+<body>
+	<canvas id="n1">
+	"Brak obsługi elementu canvas"
+	</canvas>
+	<button type="button" onclick="rysuj();">Rysuj</button>
+</body>
+</html>
