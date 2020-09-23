@@ -52,7 +52,7 @@
   var_dump($a > $b);
   echo "<br>";
 
-  echo "Czy a jest miejsza lub równa się b? => ";
+  echo "Czy a jest mniejsza lub równa się b? => ";
   var_dump($a <= $b);
   echo "<br>";
 
