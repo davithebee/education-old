@@ -40,10 +40,6 @@
   var_dump($a != $b);
   echo "<br>";
 
-  echo "Czy a różna od b? => ";
-  var_dump($a <> $b);
-  echo "<br>";
-
   echo "Czy a nie jest identyczna rodzajem i wartością do b? => ";
   var_dump($a <> $b);
   echo "<br>";
