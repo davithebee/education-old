@@ -51,7 +51,7 @@ E;
     Miasto: $city<hr>
 E;
 
-    echo "Nazwa zmiennej: \$city, wartość: $city";
+    echo "Nazwa zmiennej: \$city, wartość: \$city";
      ?>
   </body>
 </html>
