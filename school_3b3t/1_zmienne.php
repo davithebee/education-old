@@ -52,7 +52,7 @@ E;
 E;
 
     echo "Nazwa zmiennej: \$city, wartość: $city";
-
+	echo "TEST";
      ?>
   </body>
 </html>
