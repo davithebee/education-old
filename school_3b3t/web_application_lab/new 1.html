@@ -1,0 +1,82 @@
+<!doctype html>
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+	background-color:grey;
+	color:white;
+	width: 100vw;
+	height: 100vh;
+	box-sizing:border-box;
+}
+
+#n1{
+	width:60%;
+	height:60%;
+	display:block;
+	box-sizing:border-box;
+	border:5px black solid;
+	border-radius:10px;
+	background-color:black;
+}
+</style>
+</head>
+<body>
+	<canvas id="n1">
+	"Brak obsługi elementu canvas"
+	</canvas>
+	<button type="button" onclick="polska();">Polska</button>
+	<button type="button" onclick="japonia();">Japonia</button>
+	<button type="button" onclick="czechy();">Czechy</button>
+	
+	<script>
+	var canvas = document.getElementById("n1");
+	var ctx = canvas.getContext("2d");
+	var sizeX = canvas.width;
+	var sizeY = canvas.height;
+
+	function polska(){
+		dlugoscX = sizeX;
+		dlugoscY = sizeY;
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, dlugoscX, dlugoscY/2);
+		ctx.fillStyle = "red";
+		ctx.fillRect(0, dlugoscY/2, dlugoscX, dlugoscY);
+	}
+	function japonia(){
+		dlugoscX = sizeX;
+		dlugoscY = sizeY;
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, dlugoscX, dlugoscY);
+		
+		ctx.fillStyle = "red";
+		window.ctx.beginPath();
+		window.ctx.arc(dlugoscX/2, dlugoscY/2, 40, 0, Math.PI*2, false)
+		window.ctx.fill();
+	}
+	function czechy(){
+		dlugoscX = sizeX;
+		dlugoscY = sizeY;
+		ctx.beginPath();
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, dlugoscX, dlugoscY/2);
+		ctx.fillStyle = "red";
+		ctx.fillRect(0, dlugoscY/2, dlugoscX, dlugoscY);
+		
+		window.ctx.fillStyle = "darkBlue";
+		window.ctx.strokeStyle = "darkBlue";
+		window.ctx.lineWidth = 1;
+		window.ctx.beginPath();
+		window.ctx.moveTo(0,0);
+		window.ctx.lineTo(dlugoscX/3, dlugoscY/2);
+		window.ctx.lineTo(0, dlugoscY);
+		window.ctx.closePath();
+		
+		window.ctx.stroke();
+		window.ctx.fill();
+	}
+</script>
+</body>
+</html>
