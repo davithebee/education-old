@@ -23,6 +23,13 @@ int check_szescian(int*tab, int r)
     return 0;
 }
 
+int check_wrong(int*tab, int r)
+{
+	if(tab[i]-tab[i-1] != tab[i-1]-tab[i-2] && tab[i-1]-tab[i-2]==[tab-3]-[tab-4]){
+		return tab[i];
+	}
+}
+
 int main()
 {
     fstream in,in3,out,out2,out3;
@@ -56,7 +63,7 @@ int main()
                 v.push_back(check_szescian(tab, r));
             }
 
-            delete []tab; //zwolnienie pamiêci
+            delete []tab; //zwolnienie pamiĂŞci
         }
     } else cout<<"ERROR - BLAD ODCZYTU";
 
@@ -70,7 +77,8 @@ int main()
     //-------ZADANIE_3----------------------------------------------------------------
 
      vector<int> roznice;
-
+	 out3<<"Zadanie 3"<<endl;
+	
         if(in3.good()){
         for(int i=0; i<20; i++){
             in>>r;
@@ -83,12 +91,13 @@ int main()
             for(int k=0; k<r-1; k++){
                 v.push_back(tab[k+1]-tab[k]);
             }
-
+            
+    		out3<<check_wrong(tab, r)<<endl;
             //DOKONCZ PODPUNKT 3!!
 
-            delete []tab; //zwolnienie pamiêci
+            delete []tab; //zwolnienie pamiĂŞci
         }
     } else cout<<"ERROR - BLAD ODCZYTU";
-
+    
     return 0;
 }
