@@ -25,8 +25,16 @@ int check_szescian(int*tab, int r)
 
 int check_wrong(int*tab, int r)
 {
-	if(tab[i]-tab[i-1] != tab[i-1]-tab[i-2] && tab[i-1]-tab[i-2]==[tab-3]-[tab-4]){
-		return tab[i];
+	if(tab[r-1]-tab[r-2] != tab[r-2]-tab[r-3] && tab[r-2]-tab[r-3]==tab[r-3]-tab[r-4]){
+		return tab[r-1];
+	}
+	if(tab[r-1]-tab[r-2] != tab[r-3]-tab[r-4] && tab[r-2]-tab[r-3] != tab[r-3]-tab[r-4] && tab[r-3]-tab[r-4] == tab[r-4]-tab[r-5]){
+		return tab[r-2];
+	}
+
+	for(int i=r-1; i>=1; i--){
+		if(tab[i]-tab[i-1] != tab[i-1]-tab[i-2]){
+		return tab[i-2];}
 	}
 }
 
@@ -76,28 +84,23 @@ int main()
 
     //-------ZADANIE_3----------------------------------------------------------------
 
-     vector<int> roznice;
 	 out3<<"Zadanie 3"<<endl;
-	
+
         if(in3.good()){
+        cout<<"OK"<<endl;
         for(int i=0; i<20; i++){
-            in>>r;
+            in3>>r;
             int *tab = new int[r]; //tablica dynamiczna
 
             for(int j=0; j<r; j++){
-                in>>tab[j];         //wczytujemy wartosci do tablicy
+                in3>>tab[j];        //wczytujemy wartosci do tablicy
             }
 
-            for(int k=0; k<r-1; k++){
-                v.push_back(tab[k+1]-tab[k]);
-            }
-            
-    		out3<<check_wrong(tab, r)<<endl;
-            //DOKONCZ PODPUNKT 3!!
+            out3<<check_wrong(tab, r)<<endl;
 
-            delete []tab; //zwolnienie pamiĂŞci
+            delete []tab; //zwolnienie pamieci
         }
     } else cout<<"ERROR - BLAD ODCZYTU";
-    
+
     return 0;
 }
