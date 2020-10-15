@@ -1,0 +1,12 @@
+IDLEKU PRODUCENT NAZWA_MIEDZYNARODOWA NAZWA_PREPARATU REFUNDACJA
+NULL,Kaguya Shinomiya,Kaguya-sama: Love is War,Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen,
+10
+NULL,Okabe Rintarou,Steins;Gate,Steins;Gate,20
+NULL,Izuku Midoriya,My Hero Academia,Boku no Hero Academia,30
+NULL,Yuuko Aioi,My Ordinary Life,Nichijou,40
+NULL,Korosensei,Assasination Classroom,Ansatsu Kyoushitsu,50
+NULL,Shigeo Kageyama,Mob Psycho 100,Mob Psycho 100,60
+NULL,Kaede Akamatsu,Danganronpa V3,NEW Danganronpa V3,70
+NULL,Phoenix Wright,Ace Attorney,Gyakuten Kenji,80
+NULL,Megumin,Konosuba,Konosuba,90
+NULL,Saitama,One Punch Man,One Punch Man,100

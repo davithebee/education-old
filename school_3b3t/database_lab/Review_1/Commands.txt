@@ -1,0 +1,45 @@
+1:
+CREATE DATABASE `powtorzenie`;
+
+2:
+USE `powtorzenie`;
+CREATE TABLE `LEKARSTWA`(
+`Nazwa Miedzynarodowa` varchar(10) primary key,
+`Nazwa Preparatu` varchar(20),
+`Producent` varchar(20),
+`Choroba` int
+)
+
+3:
+USE `powtorzenie`;
+ALTER TABLE `lekarstwa` DROP PRIMARY KEY;
+
+4:
+USE `powtorzenie`;
+ALTER TABLE `lekarstwa` DROP `Choroba`;
+
+5:
+USE `powtorzenie`;
+ALTER TABLE `lekarstwa` ADD COLUMN `IDLeku` int unsigned AUTO_INCREMENT PRIMARY KEY;
+
+6:
+USE `powtorzenie`;
+ALTER TABLE `lekarstwa` MODIFY `Nazwa Miedzynarodowa` varchar(30);
+
+7:
+USE `powtorzenie`;
+ALTER TABLE `lekarstwa` RENAME `Leki`;
+
+8:
+USE `powtorzenie`;
+ALTER TABLE `Leki` ADD COLUMN `Refundacja` tinyint unsigned DEFAULT 0;
+
+9:
+USE `powtorzenie`;
+ALTER TABLE `Leki` MODIFY `Producent` varchar(20) after `IDLeku`;
+ALTER TABLE `Leki` MODIFY `Nazwa Miedzynarodowa` varchar(30) after `producent`;
+ALTER TABLE `Leki` MODIFY `Nazwa Preparatu` varchar(20) after `Nazwa Miedzynarodowa`;
+
+10:
+USE `powtorzenie`;
+ALTER TABLE `Leki` MODIFY `Producent` varchar(25);
