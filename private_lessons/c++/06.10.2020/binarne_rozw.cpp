@@ -36,7 +36,7 @@ int main()
     int more_zero_than_one=0, divisible_by_2=0, divisible_by_8=0;
     string s;
     int min_size=250, max_size=0;
-    int min_binary=0, max_binary=0;
+    string min_binary, max_binary;
 
     if(in.good()){
         for(int i=0; i<1000; i++){
@@ -53,11 +53,18 @@ int main()
     } else cout<<"ERROR";
 
     vector<string> tab_min, tab_max;
+    vector<int> indeks_min, indeks_max;
     in.seekg(0);
     for(int i=0; i<1000; i++){
         in>>s;
-        if(s.size()== min_size) tab_min.push_back(s);
-        if(s.size()== max_size) tab_max.push_back(s);
+        if(s.size()== min_size){
+                tab_min.push_back(s);
+                indeks_min.push_back(i);
+        }
+        if(s.size()== max_size){
+                tab_max.push_back(s);
+                indeks_max.push_back(i);
+        }
         }
 
     out<<"ZADANIE 1:"<<endl;
@@ -67,26 +74,35 @@ int main()
     out<<divisible_by_2<<endl;
     out<<divisible_by_8<<endl<<endl;
 
-    out<<min_size<<endl;
-    out<<max_size<<endl;
-
     out<<"ZADANIE 3:"<<endl;
-    in.seekg(0);
-    for(int i=0; i<1000; i++){
-        in>>s;
-        if(s==min_binary){
-            cout<<"Najmniejsza - "<<s;
-            break;
-        }
+
+    min_binary=tab_min[0];
+    max_binary=tab_max[0];
+    for(int i=1; i<tab_min.size(); i++){
+            for(int j=1; j<min_size; j++){
+                if(tab_min[i][j]<min_binary[j]){
+                    min_binary=tab_min[i];
+                    break;
+                }
+            }
     }
 
-    in.seekg(0);
-    for(int i=0; i<1000; i++){
-        in>>s;
-        if(s==max_binary){
-            cout<<"Najwieksza - "<<s;
-            break;
-        }
+    for(int i=0; i<indeks_min.size(); i++){
+        if(min_binary==tab_min[i]) out<<indeks_min[i]+1<<endl;
+    }
+
+    for(int i=1; i<tab_max.size(); i++){
+            for(int j=1; j<max_size; j++){
+                if(tab_max[i][j]<max_binary[j]) break;
+                if(tab_max[i][j]>max_binary[j]){
+                    max_binary=tab_max[i];
+                    break;
+                }
+            }
+    }
+
+    for(int i=0; i<indeks_max.size(); i++){
+        if(max_binary==tab_max[i]) out<<indeks_max[i]+1<<endl;
     }
 
     return 0;
