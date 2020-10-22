@@ -46,13 +46,13 @@
           <tr>
             <td>First Name <span style="color:red">*</span></td>
             <td>
-              <input type="text" name="frstname" required pattern="[A-Z][a-z-]{1,9}">
+              <input type="text" name="frstname" required pattern="[A-Z][a-z]{1,9}">
             </td>
           </tr>
           <tr>
             <td>Last Name <span style="color:red">*</span></td>
             <td>
-              <input type="text" name="lastname" required pattern="[A-Z][a-z]{1,19}">
+              <input type="text" name="lastname" required pattern="[A-Z][a-z-]{1,19}">
             </td>
           </tr>
           <tr>
