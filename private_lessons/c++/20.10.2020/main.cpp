@@ -1,7 +1,17 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <cmath>
 
 using namespace std;
+
+int potega(int a, int b){
+  int w=1;
+  for(int i=0; i<b; i++){
+    w*=a;
+  }
+  return w;
+}
 
 int horner(string liczba, int base)
 {
@@ -22,6 +32,27 @@ int horner(string liczba, int base)
   return y*ujemna;
 }
 
+//-------------------------ZAD1----------------------------------
+void decimal_to_binary(fstream &wynik, int liczba){
+  vector<int> bin;
+  char ujemna='-';
+
+  if(liczba<0){
+    wynik<<ujemna;
+    liczba*=-1;
+  }
+
+  while(liczba>0){
+    bin.push_back(liczba%2);
+    liczba/=2;
+  }
+
+  for(int i=bin.size()-1; i>=0; i--){
+    wynik<<bin[i];
+  }
+  wynik<<endl;
+}
+//--------------------------------------------------------------
 
 
 
@@ -64,7 +95,76 @@ int main()
         if(temp3[i]<min3) min3=temp3[i];
       }
 
-      cout<<min1;
+//-------------------------ZAD2----------------------------------
+      int stan=12, licznik=0;
+
+      for(int i=0; i<1095; i++){
+        if(czas1[i]!=stan && czas2[i]!=stan && czas3[i]!=stan){
+          licznik++;
+        }
+        stan+=24;
+      }
+//---------------------------------------------------------------
+
+//-------------------------ZAD3----------------------------------
+
+      int maks_1=temp1[0], maks_2=temp2[0], maks_3=temp3[0];
+      int dni_rekordowe=1;
+
+      for(int i=1; i<1095; i++){
+        int rekord=0;
+
+        if(temp1[i]>maks_1){
+          maks_1=temp1[i];
+          rekord++;
+        }
+        if(temp2[i]>maks_2){
+          maks_2=temp2[i];
+          rekord++;
+        }
+        if(temp3[i]>maks_3){
+          maks_3=temp3[i];
+          rekord++;
+        }
+        if(rekord>0){
+          dni_rekordowe++;
+        }
+
+      }
+
+//---------------------------------------------------------------
+
+//-------------------------ZAD4----------------------------------
+      int rij, skok, maks_skok=0;
+      double wynik_dzielenia;
+
+      for(int i=0; i<1095; i++){
+        for(int j=i+1; j<1095; j++){
+          rij=potega((temp1[i]-temp1[j]),2);
+          wynik_dzielenia=(double)rij/abs(i-j);
+          skok=ceil(wynik_dzielenia);
+          if(skok>maks_skok) maks_skok=skok;
+        }
+      }
+
+//---------------------------------------------------------------
+
+    wynik<<"Zadanie 1"<<endl;
+    decimal_to_binary(wynik, min1);
+    decimal_to_binary(wynik, min2);
+    decimal_to_binary(wynik, min3);
+    wynik<<endl;
+
+    wynik<<"Zadanie 2"<<endl;
+    wynik<<licznik<<endl;
+    wynik<<endl;
+
+    wynik<<"Zadanie 3"<<endl;
+    wynik<<dni_rekordowe<<endl;
+    wynik<<endl;
+
+    wynik<<"Zadanie 4"<<endl;
+    wynik<<maks_skok<<endl;
 
     }else{
       cout<<"ERROR";

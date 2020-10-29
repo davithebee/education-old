@@ -1,0 +1,23 @@
+body{
+    margin: 20 !important;
+    background-color: white;
+}
+
+.wrapper{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px #bbbbbb solid;
+    border-left: 1px #bbbbbb solid;
+    border-right: 1px #bbbbbb solid;
+}
+
+.required{
+    color: red;
+}
+
+.infoTxt{
+    font-size: 0.8rem;
+    color: gray;
+}

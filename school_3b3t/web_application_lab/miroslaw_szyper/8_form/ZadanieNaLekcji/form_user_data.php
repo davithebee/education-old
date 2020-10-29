@@ -1,70 +1,36 @@
 <!DOCTYPE html>
-<html lang="pl" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Dane</title>
-  </head>
-  <body>
-    <h3>Dane użytkownika</h3>
-    <?php
-      $acctype = $_POST['acctype'];
-      $frstname = $_POST['frstname'];
-      $lastname = $_POST['lastname'];
-      $country_region = $_POST['country_region'];
-      $strtadd = $_POST['strtadd'];
-      $strtadd2 = $_POST['strtadd2'];
-      $state_province = $_POST['state_province'];
-      $postalcode = $_POST['postalcode'];
-      $phonenmbr = $_POST['phonenmbr'];
+    <head>
+    </head>
+    <body>
+        <?php
+            session_start();
+            $_SESSION['accType'] = $_POST['accType'];
+            $_SESSION['firstName'] = $_POST['firstName'];
+            $_SESSION['lastName'] = $_POST['lastName'];
+            $_SESSION['country'] = $_POST['country'];
+            $_SESSION['streetAddress'] = $_POST['streetAddress'];
+            $_SESSION['altStreetAddress'] = $_POST['altStreetAddress'];
+            $_SESSION['zipCode'] = $_POST['zipCode'];
+            $_SESSION['city'] = $_POST['city'];
+            $_SESSION['state'] = $_POST['state'];
+            $_SESSION['phoneNumber'] = $_POST['phoneNumber'];
 
-      if(empty($acctype))
+            if(empty($_POST["accType"]) or empty($_POST["firstName"]) or empty($_POST["lastName"]) or empty($_POST["country"]) or empty($_POST["streetAddress"]) 
+            or empty($_POST["zipCode"]) or empty($_POST["city"]) or empty($_POST["state"]) or empty($_POST["phoneNumber"]))
+            { 
+                header("Location: ./form_user.php");
+                die(); 
+            }
 
-      switch ($acctype) {
-        case 'pa':
-          $acctype = "Personal Account";
-          break;
-        case 'ba':
-          $acctype = "Business Account";
-          break;
-      }
 
-      switch ($country_region) {
-        case 'pl':
-          $country_region = "Poland";
-          break;
-        case 'us':
-          $country_region = "United States of America";
-          break;
-        case 'gr':
-          $country_region = "Greece";
-          break;
-      }
-
-      switch ($state_province) {
-        case 'wp':
-          $state_province = "Wielkopolskie";
-          break;
-        case 'zp':
-          $state_province = "Zachodniopomorskie";
-          break;
-        case 'mp':
-          $state_province = "Małopolskie";
-          break;
-      }
-
-      if(empty($strtadd2)) $strtadd2 = "-----";
-
-      echo <<<DATA
-      Account Type: $acctype<br>
-      First Name: $frstname<br>
-      Last Name: $lastname<br>
-      Country/Region: $country_region<br>
-      Street Address: $strtadd<br>
-      Street Address 2: $strtadd2<br>
-      State/Province: $state_province<br>
-      ZIP/Postal Code: $postalcode<br>
-      Phone Number: $phonenmbr
-DATA;
-    ?>
-  </body>
+            print('Konto: '.$_POST["accType"]. '</br>');
+            print('Imię i Nazwisko: '.$_POST["firstName"].' '.$_POST["lastName"].'</br>');
+            print('Kraj: '.$_POST["country"]. '</br>');
+            print('Adres 1: '.$_POST["streetAddress"].'<br>');
+            print('Adres 2: '.$_POST["altStreetAddress"].'<br>');
+            print('Kod pocztowy i miasto: '.substr($_POST["zipCode"], 0,2).'-'.substr($_POST["zipCode"], 2,5).' '.$_POST["city"].'<br>');
+            print('Województwo: '.$_POST["state"].'<br>');
+            print('Numer Telefonu: '.$_POST["phoneNumber"].'<br>');
+        ?>
+    </body>
 </html>
