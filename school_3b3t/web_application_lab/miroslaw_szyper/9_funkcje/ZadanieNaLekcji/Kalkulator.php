@@ -10,7 +10,7 @@
       text-align:center;
     }
     #kalkulator{
-      margin: auto;
+      margin:auto;
       display:block;
       background-color: #ffffff;
       width:700px;
@@ -24,19 +24,55 @@
     </style>
 </head>
 <body>
+  <?php
+    session_start();
+
+    require_once './Kalkulator_Funkcje.php';
+
+    if(isset($_GET['calculate'])){
+      $_SESSION['x'] = $_GET['x'];
+      $_SESSION['y'] = $_GET['y'];
+      $_SESSION['select_option'] = $_GET['operator'];
+      switch($_GET['operator']){
+        case "add":
+          $_SESSION['wynik'] = add($_SESSION['x'], $_SESSION['y']);
+        break;
+        case "substract":
+          $_SESSION['wynik'] = substract($_SESSION['x'], $_SESSION['y']);
+        break;
+        case "multiply":
+          $_SESSION['wynik'] = multiply($_SESSION['x'], $_SESSION['y']);
+        break;
+        case "divide":
+          if($_SESSION['y'] != 0){
+            $_SESSION['wynik'] = divide($_SESSION['x'], $_SESSION['y']);
+            break;
+          }
+          $SESSION['wynik'] = 'ERROR';
+        break;
+      }
+    }
+  ?>
     <span style="font-size:30px; font-family:sans-serif; font-weight:bold;">Kalkulator</span>
     <div id="kalkulator">
-    <form method="GET">
-        <input type="text" name="x">
-        <select required name="Country">
-            <option value="add">+</option>
-            <option value="substract">-</option>
-            <option value="multiply">*</option>
-            <option value="divide">/</option>
+    <form action="Kalkulator.php" method="GET">
+        <input type="number" name="x" value="<?php echo $_SESSION['x']; ?>" required>
+        <select required name="operator">
+            <?php
+            if(isset($_SESSION['select_option'])){
+              $select_option = $_SESSION['select_option'];
+            } else {
+              $select_option = 'add';
+            }
+            echo '<option value="add"';if($select_option=='add') echo 'selected';echo '>+</option>';
+            echo '<option value="substract"';if($select_option=='substract') echo 'selected';echo '>-</option>';
+            echo '<option value="multiply"';if($select_option=='multiply') echo 'selected';echo '>*</option>';
+            echo '<option value="divide"';if($select_option=='divide') echo 'selected';echo '>/</option>';
+            ?>
         </select>
-        <input type="text" name="y">
-        <button name="calculate">=</button>
-        <input type="text" name="result" disabled>
+        <input type="number" name="y" value="<?php echo $_SESSION['y']; ?>" required>
+        <button type="submit" name="calculate" value="submit">=</button>
+        <input type="text" name="result" value="<?php echo $_SESSION['wynik']; ?>" disabled>
     </form>
     </div>
 </body>
