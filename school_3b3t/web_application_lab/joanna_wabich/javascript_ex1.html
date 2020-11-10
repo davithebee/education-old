@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Zadanie 1</h2>
+
+<button onclick="bezwzgledna()">Nacisnij</button>
+
+<p>Liczba bezwgledna:<span id="zad1"></span></p>
+
+<script>
+function bezwzgledna() {
+  var x = prompt("Podaj Liczbe");
+  document.getElementById("zad1").innerHTML = Math.abs(x);
+}
+</script>
+
+<h2>Zadanie 2</h2>
+
+<button onclick="kolo()">Nacisnij</button>
+
+<p>Obwod kola:<span id="zad2_1"></span></p>
+<p>Pole kola:<span id="zad2_2"></span></p>
+
+<script>
+function kolo() {
+  var y = prompt("Podaj Promien Kola");
+  document.getElementById("zad2_1").innerHTML = (2*3.14*y).toFixed(2);
+  document.getElementById("zad2_2").innerHTML = (3.14*Math.sqrt(y)).toFixed(2);
+}
+</script>
+
+<h2>Zadanie 3</h2>
+
+<button onclick="random10()">Nacisnij</button>
+
+<p>Liczby:<span id="zad3_1"></span></p>
+<p>Ich suma:<span id="zad3_2"></span></p>
+
+<script>
+function random10() {
+  var a = Math.floor(Math.random() * 100);
+  var b = Math.floor(Math.random() * 100);
+  var c = Math.floor(Math.random() * 100);
+  var d = Math.floor(Math.random() * 100);
+  var e = Math.floor(Math.random() * 100);
+  var f = Math.floor(Math.random() * 100);
+  var g = Math.floor(Math.random() * 100);
+  var h = Math.floor(Math.random() * 100);
+  var i = Math.floor(Math.random() * 100);
+  var j = Math.floor(Math.random() * 100);
+  var k = Math.floor(Math.random() * 100);
+  document.getElementById("zad3_1").innerHTML = a+' - '+b+' - '+c+' - '+d+' - '+e+' - '+f+' - '+g+' - '+h+' - '+i+' - '+j+' - '+k;
+  document.getElementById("zad3_2").innerHTML = a+b+c+d+e+f+g+h+i+j+k;
+}
+</script>
+
+</body>
+</html>
