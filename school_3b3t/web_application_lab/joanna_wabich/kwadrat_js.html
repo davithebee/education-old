@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Zadanie</title>
+  <style>
+  body{
+    font-family: sans-serif;
+  }
+  #kwadrat{
+    border: 8px solid black;
+    border-radius: 10px;
+    background-color:red;
+    width: 200px;
+    height: 200px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  table,thead,tbody,td{
+    border: 3px solid black;
+    border-collapse: collapse;
+    width:300px;
+    text-align:center;
+    font-weight:bold;
+  }
+  thead{
+    background-color: #999;
+  }
+  p{
+    font-size: 20px;
+    color:black;
+    font-family: comic sans ms;
+  }
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+function differentBox(x){
+  x.style.backgroundColor = "yellow";
+  x.style.border = "22px solid blue";
+}
+
+function normalBox(x){
+  x.style.backgroundColor = "red";
+  x.style.border = "8px solid black";
+}
+
+function textChange(z){
+  z.style.fontSize = "50px";
+  z.style.fontWeight = "bold";
+  z.style.textDecoration = "underline";
+}
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <td><h2>Zadanie 1</h2></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="height:300px;"><div id="kwadrat" onmouseover="differentBox(this)" onmouseout=normalBox(this)></div></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <td><h2>Zadanie 2</h2></td>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><p id="tekst" ondblclick="textChange(this)">Dawid Liberski</p></td>
+      </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>
