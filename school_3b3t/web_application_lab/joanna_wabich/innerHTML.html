@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>innerHTML</title>
+  <style>
+  body{
+    font-family: sans-serif;
+  }
+  p{
+    font-size: 40px;
+    color:black;
+  }
+  ul{
+    font-size: 40px;
+    width:180px;
+    border:0px solid black;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    padding:0px !important;
+    list-style-type:none;
+  }
+  #parzyste{
+    color:red;
+    font-weight:bold;
+  }
+  #nieparzyste{
+    color:blue;
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+
+<script type="text/javascript">
+function textAdd(tekst){
+  var x = parseInt(prompt("Podaj pierwszą liczbę:"));
+  var y = parseInt(prompt("Podaj drugą liczbę:"));
+  document.getElementById("lista").style.border = "8px solid black"
+  if(x > y){
+  tekst.innerHTML = "Dawid Liberski<br><br>" + x + " do " + y + " to ciąg malejący:";
+  for(var i=x; i>=y; i--){
+    var node = document.createElement("li");
+    if(i%2==0){node.id="parzyste"}else{node.id="nieparzyste"}
+    var textNode = document.createTextNode(i);
+    node.appendChild(textNode);
+    document.getElementById("lista").appendChild(node);
+  }
+  } else {
+  tekst.innerHTML = "Dawid Liberski<br><br>" + x + " do " + y + " to ciąg rosnący:";
+  for(var i=x; i<=y; i++){
+    var node = document.createElement("li");
+    if(i%2==0){node.id="parzyste"}else{node.id="nieparzyste"}
+    var textNode = document.createTextNode(i);
+    node.appendChild(textNode);
+    document.getElementById("lista").appendChild(node);
+  }
+  }
+}
+</script>
+
+
+<div style="text-align:center; width:100%;">
+  <p id="tekst" onclick="textAdd(this)">Dawid Liberski</p>
+</div>
+
+<ul id="lista">
+</ul>
+
+</body>
+</html>
