@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    #tekst{
+      color:black;
+    }
+    </style>
+  </head>
+  <body>
+    Zadanie 1<br><br>
+    <form>
+      <input type="number" name="a" id="a"  required/><br><br>
+      <input type="number"  name="b" id="b"  required/><br><br>
+      <button type="submit" onclick="kliknij()">oblicz</button><br><br>
+    </form>
+    <script>
+    function kliknij(){
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        document.write("Pierwsza liczba: " + a + "<br><br>");
+        document.write("Druga liczba: " + b + "<br><br>");
+        if (a<b) document.write("A jest mniejsze od B<br><br>");
+        else document.write("A jest większe od B<br><br>");
+      }
+    </script>
+
+    Zadanie 2<br><br>
+    <form>
+      <input type="text" name="x" id="kolor" /><br><br>
+      <input type="text"  name="y" id="czcionka" /><br><br>
+      <input type="text" name="z" id="rozmiar" /><br><br>
+      <button type='button' onclick="zmien(tekst)">zmień</button><br><br>
+    </form>
+    <span id="tekst">Dawid Liberski</span>
+    <script>
+
+    function zmien(x){
+        var kolor = document.getElementById("kolor").value;
+        var rodzaj = document.getElementById("czcionka").value;
+        var rozmiar = document.getElementById("rozmiar").value;
+        x.style.color=kolor;
+        x.style.fontFamily=rodzaj;
+        x.style.fontSize=rozmiar;
+    }
+
+
+  </script>
+  </body>
+</html>
