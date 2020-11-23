@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    #tekst{
+      color:black;
+    }
+    </style>
+  </head>
+  <body>
+    Zadanie 1<br><br>
+    <form>
+      <input type="number" name="a" id="a"/><br><br>
+      <input type="number"  name="b" id="b"/><br><br>
+      <button type="button" onclick="zmien()">suma</button><br><br>
+    </form>
+    <div id=suma></div>
+    <script>
+    var suma_count = 0;
+
+    function zmien(){
+        var a = parseInt(document.getElementById("a").value);
+        var b = parseInt(document.getElementById("b").value);
+        suma_count++;
+        var suma = a+b;
+        var node = document.createElement("li");
+        var textNode = document.createTextNode("Suma "+suma_count+": "+a+" + "+b+" = "+suma);
+        node.appendChild(textNode);
+        document.getElementById("suma").appendChild(node);
+      }
+    </script>
+
+    <br><br>Zadanie 2<br><br>
+    <form>
+      <input type="number" name="c" id="c"/><br><br>
+      <button type="button" onclick="wzrost()">sprawdź wzrost</button><br><br>
+    </form>
+    <div id=wzrost></div>
+    <script>
+    var wzrost_count = 0;
+
+    function wzrost(){
+        var c = parseInt(document.getElementById("c").value);
+        wzrost_count++;
+        var wzrost;
+        if(c<150) wzrost = "niski";
+        else if(c>180) wzrost = "wysoki";
+        else wzrost = "średni";
+        var node = document.createElement("li");
+        var textNode = document.createTextNode("Wzrost "+wzrost_count+" wynosi: "+c+". Jesteś "+wzrost+".");
+        node.appendChild(textNode);
+        document.getElementById("wzrost").appendChild(node);
+      }
+    </script>
+
+    <br><br>Zadanie 3<br><br>
+    <form>
+      <input type="number" name="x" id="x"/><br><br>
+      <input type="number" name="y" id="y"/><br><br>
+      <input type="number" name="z" id="z"/><br><br>
+      <button type="button" onclick="trojkat()">sprawdź trójkąt</button><br><br>
+    </form>
+    <div id=trojkat></div>
+    <script>
+    var trojkat_count = 0;
+
+    function trojkat(){
+        var x = parseInt(document.getElementById("x").value);
+        var y = parseInt(document.getElementById("y").value);
+        var z = parseInt(document.getElementById("z").value);
+        trojkat_count++;
+        var trojkat;
+        if(z>y && z>x && x+y>z || x>y && x>z && y+z>x || y>x && y>z && x+z>y) trojkat = "mogą";
+        else trojkat = "nie mogą";
+        var node = document.createElement("li");
+        var textNode = document.createTextNode("Boki "+x+", "+y+" i "+z+" "+trojkat+" być bokami trójkąta.");
+        node.appendChild(textNode);
+        document.getElementById("trojkat").appendChild(node);
+      }
+    </script>
+
+
+  </script>
+  </body>
+</html>
