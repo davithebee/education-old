@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    #tekst{
+      color:black;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="liczby"></div>
+
+    <form id="forma">
+      <input type="number" name="wpisana_suma" id="wpisana_suma" onclick = "reset_via_click()"/><br><br>
+      <button type="button" onclick="sprawdz()">sprawdź</button><br><br>
+    </form>
+
+    <script>
+    var suma = 0;
+    var bledna_check = false;
+
+    function reset(){
+      document.getElementById("liczby").innerHTML = "";
+      document.getElementById("forma").reset();
+      document.getElementById("wpisana_suma").style.backgroundColor = "white";
+      var a = Math.floor(Math.random() * 11);
+      var b = Math.floor(Math.random() * 11);
+
+      var node = document.createElement("li");
+      var textNode = document.createTextNode("Liczba 1: " + a);
+      node.appendChild(textNode);
+      document.getElementById("liczby").appendChild(node);
+
+      var node = document.createElement("li");
+      var textNode = document.createTextNode("Liczba 2: " + b);
+      node.appendChild(textNode);
+      document.getElementById("liczby").appendChild(node);
+
+      suma = parseInt(a) + parseInt (b);
+    }
+
+    reset();
+
+    function sprawdz(){
+      var wpisana_suma = parseInt(document.getElementById("wpisana_suma").value);
+
+      if (wpisana_suma == suma)
+      {
+        document.getElementById("wpisana_suma").style.backgroundColor = "green";
+      } else {
+        document.getElementById("wpisana_suma").style.backgroundColor = "red";
+        bledna_check = true;
+      }
+    }
+
+    function reset_via_click(){
+      if(bledna_check == true)
+      {
+        reset();
+        bledna_check == false;
+      }
+    }
+    </script>
+
+  </script>
+  </body>
+</html>
