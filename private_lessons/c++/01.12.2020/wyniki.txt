@@ -1,0 +1,16 @@
+Zadanie 1: 
+Najjaśniejszy piksel: 221
+Najciemniejszy piksel: 7
+
+Zadanie 2: 
+Aby uzyskać symetrię pionową 
+należy usunąć 149 wierszy. 
+ 
+Zadanie 3: 
+Liczba pikseli dla których 
+istnieje piksel kontrastujący: 753
+
+Zadanie 4: 
+Długość najdłuższej 
+linii pionowej wynosi: 4
+
