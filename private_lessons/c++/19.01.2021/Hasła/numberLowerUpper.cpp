@@ -15,21 +15,21 @@ int numberLowerUpper(std::string passwords[200]){
 
             for(int characterIndex{0}; characterIndex < passwords[i].size(); characterIndex++)
             {
-                if(passwords[i][characterIndex] < '0' || passwords[i][characterIndex] > '9')
+                if(passwords[i][characterIndex] <= '9' && passwords[i][characterIndex] >= '0')
                 {
                     isNumerical = true;
                 }
-                if(passwords[i][characterIndex] <= 122 || passwords[i][characterIndex] >= 97)
+                if(passwords[i][characterIndex] <= 122 && passwords[i][characterIndex] >= 97)
                 {
                     isLower = true;
                 }
-                if(passwords[i][characterIndex] <= 90 || passwords[i][characterIndex] >= 65)
+                if(passwords[i][characterIndex] <= 90 && passwords[i][characterIndex] >= 65)
                 {
                     isUpper = true;
                 }
             }
 
-            if(isNumericalLowerUpper == true)
+            if(isNumerical == true && isLower == true && isUpper == true)
             {
                     goodPasswordsAmount++;
             }

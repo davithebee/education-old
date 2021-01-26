@@ -4,6 +4,7 @@
 int onlyNumerical(std::string passwords[200]);
 int multipleUses(std::string passwords[200]);
 int numberLowerUpper(std::string passwords[200]);
+int fourASCII(std::string passwords[200]);
 
 int main()
 {
@@ -29,6 +30,12 @@ int main()
         out << "Zadanie 2" << '\n';
         out.close();
         multipleUses(passwords);
+
+        out.open("wyniki.txt",std::ios::app);
+
+        out << '\n' << "Zadanie 3" << '\n'
+            << "Liczba z czteroma kolejnym \n"
+            << "kodami ASCII: " << fourASCII(passwords) << '\n' << '\n';
 
         out << "Zadanie 4" << '\n'
             << "Liczba haseł zawierających \n"
