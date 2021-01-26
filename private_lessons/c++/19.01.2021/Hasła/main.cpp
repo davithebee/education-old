@@ -3,6 +3,7 @@
 
 int onlyNumerical(std::string passwords[200]);
 int multipleUses(std::string passwords[200]);
+int numberLowerUpper(std::string passwords[200]);
 
 int main()
 {
@@ -22,12 +23,17 @@ int main()
 
 
         out << "Zadanie 1" << '\n'
-            << "Liczba hase� z�o�onych \n"
-            << "ze znak�w numerycznych: " << onlyNumerical(passwords) << '\n' << '\n';
+            << "Liczba haseł złożonych \n"
+            << "ze znaków numerycznych: " << onlyNumerical(passwords) << '\n' << '\n';
 
         out << "Zadanie 2" << '\n';
         out.close();
         multipleUses(passwords);
+
+        out << "Zadanie 4" << '\n'
+            << "Liczba haseł zawierających \n"
+            << "znak numeryczny, dużą literę \n"
+            << "oraz małą literę: " << numberLowerUpper(passwords) << '\n' << '\n';
     }
     else
     {
