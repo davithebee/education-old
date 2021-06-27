@@ -1,0 +1,31 @@
+6
+Kowalski
+10
+3b
+ul. Kopernika
+Poznań
+Błaszczyński
+23
+2c
+ul. Prosta
+Warszawa
+Miły
+13
+1a
+ul. Słoneczna
+Bielsko-Biała
+Szczodrzyński
+10
+2a
+os. Naukowców
+Łódź
+Gronek
+4
+3b
+ul. Krzywa
+Warszawa
+Nowak
+7
+2c
+os. Astronautów
+Poznań
