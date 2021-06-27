@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pogotowie Komputerowe</title>
+  </head>
+
+  <style>
+
+    body
+    {
+      background-color: #88E;
+    }
+
+    #logo
+    {
+      width:100%;
+      text-align: center;
+    }
+
+    #content
+    {
+      width: 100%;
+      text-align: center;
+    }
+
+  </style>
+
+  <body>
+    <div id="logo"><img src="logo.png"></div>
+    <div id="content">
+      <h1>Ile będzie kosztowało moje wesele?</h1>
+      <form>
+        Podaj liczbę gości: <input type="number" id="liczbaGosci"></input><br>
+        <input type="checkbox" id="czyPoprawiny"> Wesele z poprawinami?<br>
+        <input type="button" onclick="koszt()" value="Oblicz koszt"><br><br>
+      </form>
+      <div id="cena"></div>
+    </div>
+
+    <script>
+      function koszt()
+      {
+        var liczbaGosci = document.getElementById("liczbaGosci").value;
+        var mnoznik = 1.0;
+
+        if(document.getElementById("czyPoprawiny"))
+        {
+          mnoznik = 1.3;
+        }
+
+        var cena = (liczbaGosci * 100) * mnoznik;
+
+        document.getElementById("cena").innerHTML = "<h3>Koszt wyprawienia twojego wesela wynosi: " + cena.toFixed(2) + "zł<h3>";
+      }
+    </script>
+  </body>
+</html>

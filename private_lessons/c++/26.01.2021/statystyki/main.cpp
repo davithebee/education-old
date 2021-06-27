@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include "statistics.cpp"
+#include "doubleLetter.cpp"
+#include "letterSequence.cpp"
 
 int doubleLetter(std::string *words);
 void statistics(std::string *words);

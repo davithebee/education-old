@@ -40,7 +40,7 @@ void letterSequence(std::string *words)
     }
 
     out << "Zadanie 3:" << '\n'
-        << "D³ugoœæ najd³u¿szego pods³owa: " << longestSequence << '\n'
-        << "Liczba s³ów z pods³owem o takiej d³ugoœci: " << longestSequenceAmount << '\n'
-        << "Pierwsze s³owo o tej d³ugoœci : " << words[longestWordIndex];
+        << "DÅ‚ugoÅ›Ä‡ najdÅ‚uÅ¼szego podsÅ‚owa: " << longestSequence << '\n'
+        << "Liczba sÅ‚Ã³w z podsÅ‚owem o takiej dÅ‚ugoÅ›ci: " << longestSequenceAmount << '\n'
+        << "Pierwsze sÅ‚owo o tej dÅ‚ugoÅ›ci : " << words[longestWordIndex];
 }

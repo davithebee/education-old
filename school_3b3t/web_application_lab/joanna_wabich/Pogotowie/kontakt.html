@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pogotowie Komputerowe</title>
+    <link href="styl.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="favicon.png">
+  </head>
+  <body>
+  <div id="wrapper">
+    <div id="container">
+      <div id="banner">
+        <img src="animacja.gif">
+      </div>
+      <div id="menu">
+        <a href="index.html">O nas</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div id="content">
+        <div id="content_1">
+          <h2>Kim jesteśmy?</h2>
+          <p>Jesteśmy firmą z wieloletnim doświadczeniem w zakresie IT</p>
+        </div>
+        <div id="content_2">
+          <h3>Formularz kontaktowy</h3>
+          <form>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Imię: </td>
+                  <td><input type="text" id="imie" name="imie"></td>
+                </tr>
+                <tr>
+                  <td>Nazwisko: </td>
+                  <td><input type="text" id="nazwisko" name="nazwisko"></td>
+                </tr>
+                <tr>
+                  <td>E-mail: </td>
+                  <td><input type="text" id="email" name="email"></td>
+                </tr>
+                <tr>
+                  <td>Usługa: </td>
+                  <td>
+                    <select id="usluga" name="usluga">
+                      <option value="naprawa komputera">naprawa komputera</option>
+                      <option value="odzyskiwanie danych">odzyskiwanie danych</option>
+                      <option value="problemy z oprogramowaniem">problemy z oprogramowaniem</option>
+                      <option value="konfiguracja sieci LAN">konfiguracja sieci LAN</option>
+                      <option value="inne">inne</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="checkbox" checked>Wyślij kopię wiadomości</input></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <button type="button" id="reset_button" onclick="resetuj()">Resetuj</button>
+                    <button type="button" id="send_button" onclick="send()">Prześlij</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <div id="wynik"></div>
+        </div>
+        <div id="content_3">
+          <h2>Co nas cechuje?</h2>
+          <p>Doświadczenie, niezawodność, konkurencyjne ceny.</p>
+        </div>
+      </div>
+      <div id="footer">
+        Autor strony: Dawid Liberski
+      </div>
+    </div>
+  </div>
+  </body>
+  <script>
+  function resetuj(){
+    document.getElementById("wynik").innerHTML = "";
+    document.getElementById("imie").innerHTML = "";
+    document.getElementById("nazwisko").innerHTML = "";
+    document.getElementById("email").innerHTML = "";
+    document.getElementById("usluga").value = "naprawa komputera";
+  }
+  function send(){
+    document.getElementById("wynik").innerHTML = "";
+    var imie = document.getElementById("imie").value + " " + document.getElementById("nazwisko").value;
+    var email = document.getElementById("email").value;
+    var usluga = "Usługa: " + document.getElementById("usluga").value;
+    var paragraf = document.createElement("p");
+    var tekst = document.createTextNode(imie);
+    paragraf.appendChild(tekst);
+    tekst = document.createElement("br");
+    paragraf.appendChild(tekst);
+    tekst = document.createTextNode(email);
+    paragraf.appendChild(tekst);
+    tekst = document.createElement("br");
+    paragraf.appendChild(tekst);
+    tekst = document.createTextNode(usluga);
+    paragraf.appendChild(tekst);
+    document.getElementById("wynik").appendChild(paragraf);
+  }
+  </script>
+</html>

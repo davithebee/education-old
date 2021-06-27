@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    .box{
+      width:500px;
+      height:20px;
+      background-color: green;
+      padding-top:20px;
+      padding-bottom:20px;
+      font-size: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+      color:white;
+      font-weight: bold;
+      overflow: hidden;
+      transition: 3s;
+      transition-timing-function: ease-out;
+    }
+    #clock{
+      font-size: 80px;
+    }
+    </style>
+  </head>
+  <body onload="startTime()">
+    <div class="box" id="box1" onmouseenter="box_resize(this)">
+      Najedź żeby rozwinąć >>
+      <br><br>
+      TYTUŁ #1
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui mauris, convallis euismod lectus rutrum, tempor vehicula leo. Ut condimentum ultricies placerat. Quisque mollis dolor id aliquet placerat. Nullam tempus quam a risus tincidunt, ut consequat nisi aliquet. Nulla egestas tellus at laoreet ultrices. Etiam molestie sagittis molestie. Ut in massa non velit pulvinar porttitor nec non quam. Suspendisse vulputate, enim quis scelerisque tincidunt, enim metus faucibus augue, id sodales metus felis nec enim. In tincidunt venenatis imperdiet. Nullam in felis posuere mauris aliquet vestibulum. Duis faucibus gravida sapien, quis rhoncus orci congue eget. Nunc in ipsum nunc. Maecenas tempor.
+    </div>
+    <div class="box" id="box2" onclick="box_resize(this)">
+      Kliknij żeby rozwinąć >>
+      <br><br>
+      TYTUŁ #2
+      <br>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui mauris, convallis euismod lectus rutrum, tempor vehicula leo. Ut condimentum ultricies placerat. Quisque mollis dolor id aliquet placerat. Nullam tempus quam a risus tincidunt, ut consequat nisi aliquet. Nulla egestas tellus at laoreet ultrices. Etiam molestie sagittis molestie. Ut in massa non velit pulvinar porttitor nec non quam. Suspendisse vulputate, enim quis scelerisque tincidunt, enim metus faucibus augue, id sodales metus felis nec enim. In tincidunt venenatis imperdiet. Nullam in felis posuere mauris aliquet vestibulum. Duis faucibus gravida sapien, quis rhoncus orci congue eget. Nunc in ipsum nunc. Maecenas tempor.
+    </div>
+    </div>
+    <div class="box" id="box3" ondblclick="box_resize(this)">
+      Kliknij dwukrotnie żeby rozwinąć >>
+      <br><br>
+      TYTUŁ #3
+      <br><br><br><br><br>
+      <div id="clock"></div>
+    </div>
+    </div>
+
+    <script>
+    var isOpen = false;
+
+    function box_resize(x)
+    {
+      if(!isOpen)
+      {
+        x.style.height = "380px";
+        x.style.backgroundColor = "red";
+        isOpen = true;
+      }
+      else
+      {
+        x.style.height = "20px";
+        x.style.backgroundColor = "green";
+        isOpen = false;
+      }
+    }
+
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = writeTime(m);
+      s = writeTime(s);
+      document.getElementById('clock').innerHTML =
+      h + " : " + m + " : " + s;
+      var t = setTimeout(startTime, 1000);
+    }
+    function writeTime(i) {
+      if (i < 10) {i = "0" + i};
+      return i;
+    }
+    </script>
+  </body>
+</html>

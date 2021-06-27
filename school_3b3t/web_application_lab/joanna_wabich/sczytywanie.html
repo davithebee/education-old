@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    #tekst{
+      color:black;
+    }
+    </style>
+  </head>
+  <body>
+    Zadanie - sczytywanie z formularza<br><br>
+    <form>
+      <input type="text" name="imie" id="imie"/> <= imie.<br><br>
+      <select name="klasa" id="klasa">
+        <option value="wybierz">wybierz klase</option>
+        <option value="klasa_a">3a</option>
+        <option value="klasa_b">3b</option>
+        <option value="klasa_c">3c</option>
+      </select><br><br>
+      <input type="radio" name="kolor" id="kolor" value="red">czerwony<br>
+      <input type="radio" name="kolor" id="kolor" value="blue">niebieski<br>
+      <input type="radio" name="kolor" id="kolor" value="green">zielony<br><br>
+      <input type="checkbox" name="styl1" id="styl1" value="bold">pogrubienie<br>
+      <input type="checkbox" name="styl2" id="styl2" value="italic">kursywa<br>
+      <input type="checkbox" name="styl3" id="styl3" value="underline">podkreślenie<br><br>
+      <button type="button" onclick="formularz()">Wyślij</button><br><br>
+    </form>
+    <div id=tekst style="border-radius:10px;"></div>
+    <script>
+
+    function formularz(){
+        var imie = document.getElementById("imie").value;
+        if(imie == ""){
+          imie = "<nie wpisano>";
+        }
+
+        var klasa = document.getElementById("klasa").value;
+        if(klasa == "klasa_a"){
+          klasa = "3a";
+        }
+        else if(klasa == "klasa_b"){
+          klasa = "3b";
+        }
+        else if(klasa == "klasa_c"){
+          klasa = "3c";
+        }
+        else{
+          klasa = "<nie wybrano>";
+        }
+
+        var kolor = document.getElementsByName("kolor");
+        for(var i=0; i<kolor.length; i++){
+          if(kolor[i].checked){
+            kolor = kolor[i].value;
+            break;
+          }
+        }
+
+        var styl1 = document.getElementById("styl1");
+        if(styl1.checked){
+          styl1 = "bold";
+        }
+        else{
+          styl1 = "";
+        }
+        var styl2 = document.getElementById("styl2");
+        if(styl2.checked){
+          styl2 = "italic";
+        }
+        else{
+          styl2 = "";
+        }
+        var styl3 = document.getElementById("styl3");
+        if(styl3.checked){
+          styl3 = "underline";
+        }
+        else{
+          styl3 = "";
+        }
+
+        document.getElementById("tekst").innerHTML = "";
+
+        var node = document.createElement("span");
+        var textNode = document.createTextNode("Witaj "+imie+" w klasie "+klasa+"!!!!");
+        node.appendChild(textNode);
+        document.getElementById("tekst").appendChild(node);
+
+        document.getElementById("tekst").style.border="4px solid black";
+        document.getElementById("tekst").style.padding="20px";
+        document.getElementById("tekst").style.textAlign="center";
+
+        document.getElementById("tekst").style.color=kolor;
+
+        document.getElementById("tekst").style.fontWeight=styl1;
+        document.getElementById("tekst").style.fontStyle=styl2;
+        document.getElementById("tekst").style.textDecoration=styl3;
+      }
+    </script>

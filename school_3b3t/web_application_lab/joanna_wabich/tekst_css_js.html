@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Zadanie - Dawid Liberski</title>
+    <style>
+    #tekst{
+      color:black;
+    }
+    </style>
+  </head>
+  <body>
+    Zadanie 1<br><br>
+    <form>
+      <input type="number" name="a" id="a"/> <= rozmiar czcionki.<br><br>
+      <input type="tekst"  name="b" id="b"/> <= tekst do wypisania.<br><br>
+      <button type="button" onclick="zmien(tekst)">Wypisz Tekst</button><br><br>
+    </form>
+    <div id=tekst></div>
+    <script>
+
+    function zmien(x){
+        var size = parseInt(document.getElementById("a").value)+"px";
+        var text = document.getElementById("b").value;
+
+        textFirstLetter = text.charAt(0).toUpperCase();
+        textRest = text.substring(1).toLowerCase();
+        text = textFirstLetter + textRest;
+
+        document.getElementById("tekst").innerHTML = "";
+
+        var node = document.createElement("span");
+        var textNode = document.createTextNode(text);
+        node.appendChild(textNode);
+        x.appendChild(node);
+        x.style.fontSize = size;
+      }
+    </script>

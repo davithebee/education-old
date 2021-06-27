@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Zadanie</title>
+  <style>
+  body{
+    font-family: sans-serif;
+  }
+  #kwadrat{
+    border: 8px solid black;
+    border-radius: 10px;
+    background-image: linear-gradient(#3399ff, #6699ff);
+    width: 520px;
+    height: 120px;
+    padding:40px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:20px;
+    color:white;
+  }
+  #kwadrat2{
+    border: 8px solid black;
+    border-radius: 10px;
+    background-color:white;
+    width: 520px;
+    height: 120px;
+    padding:40px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  button{
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  input{
+    width: 510px;
+  }
+  </style>
+</head>
+<body>
+
+<div id="kwadrat">
+Dodaj TAG<br><br>
+<form>
+  <input type="text" id="tags" name="tags" placeholder="Podaj TAG"><br><br>
+  <button type="button" onclick="addtags()">Dodaj TAG</button><br><br>
+</form>
+
+</div>
+<div id="kwadrat2">
+<div id="taglist"></div>
+</div>
+
+<script type="text/javascript">
+function addtags(){
+      document.getElementById("taglist").innerHTML = "";
+      var list = document.getElementById("tags").value;
+      list = list.split(/,\s*/).sort().filter(function(el){return el != "";})
+      var node = document.createElement("div");
+      var textNode = document.createTextNode("Wpisane tagi oddzielone przecinkiem:");
+      node.appendChild(textNode);
+      textNode = document.createElement("br");
+      node.appendChild(textNode);
+      textNode = document.createTextNode(list);
+      node.appendChild(textNode);
+      document.getElementById("taglist").appendChild(node);
+}
+</script>
+
+</body>
+</html>

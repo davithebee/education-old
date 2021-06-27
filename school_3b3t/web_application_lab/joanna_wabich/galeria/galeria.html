@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pogotowie Komputerowe</title>
+  </head>
+
+  <style>
+
+    .mySlides {
+      display: none;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      width: auto;
+      padding: 50px;
+      color: black;
+      font-weight: bold;
+      font-size: 50px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    table, th, td {
+      border: 2px solid black;
+      text-align: center;
+    }
+
+  </style>
+
+  <body>
+    <!-- Thumbnail images -->
+    <table>
+        <tr>
+          <td><a class="prev" onclick="plusSlides(-1)">&#10094;</a></td>
+          <td>
+          <div class="slides_left"><img src="apple.jpeg"></div>
+          <div class="slides_left"><img src="kiwi.jpeg"></div>
+          <div class="slides_left"><img src="mango.jpeg"></div>
+          <div class="slides_left"><img src="watermelon.jpeg"></div>
+          <div class="slides_left"><img src="pomegranate.jpeg"></div>
+          <div class="slides_left"><img src="passion.jpeg"></div>
+          </td>
+          <td>
+          <div class="slides_mid"><img src="apple.jpeg"></div>
+          <div class="slides_mid"><img src="kiwi.jpeg"></div>
+          <div class="slides_mid"><img src="mango.jpeg"></div>
+          <div class="slides_mid"><img src="watermelon.jpeg"></div>
+          <div class="slides_mid"><img src="pomegranate.jpeg"></div>
+          <div class="slides_mid"><img src="passion.jpeg"></div>
+          </td>
+          <td>
+          <div class="slides_right"><img src="apple.jpeg"></div>
+          <div class="slides_right"><img src="kiwi.jpeg"></div>
+          <div class="slides_right"><img src="mango.jpeg"></div>
+          <div class="slides_right"><img src="watermelon.jpeg"></div>
+          <div class="slides_right"><img src="pomegranate.jpeg"></div>
+          <div class="slides_right"><img src="passion.jpeg"></div>
+          </td>
+          <td><a class="next" onclick="plusSlides(1)">&#10095;</a></td>
+        </tr>
+        <tr>
+          <td colspan="5">
+            <div class="container">
+              <div class="slides">
+                  <img src="apple.jpeg">
+              </div>
+
+              <div class="slides">
+                  <img src="kiwi.jpeg">
+              </div>
+
+              <div class="slides">
+                  <img src="mango.jpeg">
+              </div>
+
+              <div class="slides">
+                  <img src="watermelon.jpeg">
+              </div>
+
+              <div class="slides">
+                  <img src="pomegranate.jpeg">
+              </div>
+
+              <div class="slides">
+                  <img src="passion.jpeg">
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+    <script>
+      var slideIndex = 2;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slides");
+        var slides_right = document.getElementsByClassName("slides_right");
+        var slides_mid = document.getElementsByClassName("slides_mid");
+        var slides_left = document.getElementsByClassName("slides_left");
+        if (n > slides.length)
+        {
+          slideIndex = 1
+        }
+        if (n < 1)
+        {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++)
+        {
+          slides[i].style.display = "none";
+          slides_right[i].style.display = "none";
+          slides_mid[i].style.display = "none";
+          slides_left[i].style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++)
+        {
+          slides[i].className = slides[i].className.replace(" active", "");
+          slides_right[i].className = slides_right[i].className.replace(" active", "");
+          slides_mid[i].className = slides_mid[i].className.replace(" active", "");
+          slides_left[i].className = slides_left[i].className.replace(" active", "");
+        }
+
+        var x;
+        var y;
+        var z;
+
+        if((slideIndex-2)==-1)
+        {x = slides.length-1}
+        else
+        {x = slideIndex-2}
+
+        if((slideIndex)==6)
+        {y = 0}
+        else
+        {y = slideIndex}
+
+        slides[slideIndex-1].style.display = "block";
+        slides_right[y].style.display = "block";
+        slides_mid[slideIndex-1].style.display = "block";
+        slides_left[x].style.display = "block";
+        slides[slideIndex-1].className += " active";
+        slides_right[y].className += " active";
+        slides_mid[slideIndex-1].className += " active";
+        slides_left[x].className += " active";
+      }
+    </script>
+  </body>
+</html>
