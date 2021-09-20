@@ -1,0 +1,80 @@
+1. utwórz tabelê za pomoc¹ kodu (dodaj odpowiednie typy i ograniczenia)
+2. utwórz relacjê miêdzy tabelami (dowolnie wybrany sposób - skopiuj polecenia do notatnika
+3. utwórz zapytania
+
+1.
+CREATE TABLE `wykroczenia`
+(
+`kod_wyk` int unsigned PRIMARY KEY,
+`nazwa` varchar(255),
+`mandat` int unsigned,
+`punkty` int unsigned 
+)
+
+[2/2]
+
+2.
+ALTER TABLE `mandaty` ADD FOREIGN KEY (`pesel`) REFERENCES `kierowcy` (`pesel`)
+ALTER TABLE `mandaty` ADD FOREIGN KEY (`kod_wyk`) REFERENCES `wykroczenia` (`kod_wyk`)
+
+[1/2]
+
+3.1
+SELECT `wykroczenia`.`nazwa`, COUNT(*) as `liczba wystapien`
+FROM `wykroczenia`
+INNER JOIN `mandaty`
+ON `mandaty`.`kod_wyk` = `wykroczenia`.`kod_wyk`
+GROUP BY `mandaty`.`kod_wyk`
+ORDER BY `liczba wystapien` DESC
+LIMIT 1
+
+[2/2]
+
+3.2
+SELECT `mandaty`.`pesel`, year(`kierowcy`.`data_prawa_jazdy`), SUM(`wykroczenia`.`punkty`)
+FROM `mandaty`
+INNER JOIN `wykroczenia`
+ON `wykroczenia`.`kod_wyk` = `mandaty`.`kod_wyk`
+INNER JOIN `kierowcy`
+ON `kierowcy`.`pesel`= `mandaty`.`pesel`
+WHERE year(`kierowcy`.`data_prawa_jazdy`) = '2013'
+GROUP BY `mandaty`.`pesel`
+HAVING SUM(`wykroczenia`.`punkty`) > 20
+
+[1/2]
+
+3.3
+SELECT `wykroczenia`.`nazwa`
+FROM `wykroczenia`
+WHERE `wykroczenia`.`nazwa` LIKE '%naruszenie zakazu%'
+
+[1/1]
+
+3.4
+SELECT sum(`wykroczenia`.`mandat`) as `suma kwoty mandatow`, count(*) as `ilosc mandatow`, month(`mandaty`.`data_wyk`) as `miesiac`
+FROM `mandaty`
+INNER JOIN `wykroczenia`
+ON `wykroczenia`.`kod_wyk` = `mandaty`.`kod_wyk`
+GROUP BY month(`mandaty`.`data_wyk`)
+ORDER BY `ilosc mandatow` ASC
+LIMIT 1
+
+[3/3]
+
+3.5
+SELECT count(`kierowcy`.`pesel`) as `kierowcy bez mandatu`
+FROM `kierowcy`
+LEFT JOIN `mandaty`
+ON `mandaty`.`pesel` = `kierowcy`.`pesel`
+WHERE `mandaty`.`pesel` IS NULL
+
+SELECT `kierowcy`.`miasto`
+FROM `kierowcy`
+LEFT JOIN `mandaty`
+ON `mandaty`.`pesel` = `kierowcy`.`pesel`
+WHERE `mandaty`.`pesel` IS NULL
+GROUP BY `kierowcy`.`miasto`
+ORDER BY count(`kierowcy`.`miasto`) DESC
+LIMIT 1
+
+[2/3]
