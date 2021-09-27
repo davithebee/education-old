@@ -1,0 +1,45 @@
+CREATE USER 'nazwa'@'host'
+IDENTIFIED BY 'haslo';
+
+host - np. 'localhost'
+'%' - dowolny dostępny host
+
+1. Olaf | localhost | zaq1@WSX
+2. Agatka | %
+
+SET PASSWORD FOR 'agatka'@'%' = PASSWORD('zaq1@WSX');
+
+-------------------------------------------------------------------------------
+
+GRANT uprawnienia
+ON `obiekt`
+TO 'user'@'host'
+
+-------------------------------------------------------------------------------
+
+DDL ( Data Definition Language )	- CREATE, ALTER, DROP (dla struktury)
+DML ( Data Manipulation Language )	- INSERT, UPDATE, DELETE (dla rekordów)
+DCL ( Data Control Language )		- GRANT, REVOKE, DENY 
+DQL ( Data Query Language )		- SELECT (ON `baza_danych`.`tabela`)
+
+-------------------------------------------------------------------------------
+
+Dodatkowe Uprawnienia - USAGE, ALL, GRANT OPTION
+
+SHOW GRANTS FOR 'agatka' - wyświetla uprawnienia użytkownika
+
+-------------------------------------------------------------------------------
+
+Przykład:
+
+GRANT INSERT(`miasto`), DELETE, CREATE ON `mandaty`.`kierowcy` TO 'olaf'@'localhost' WITH GRANT OPTION
+
+-------------------------------------------------------------------------------
+
+REVOKE uprawnienia
+ON `obiekt`
+FROM 'user'@'host'
+
+-------------------------------------------------------------------------------
+
+REVOKE CREATE ON `mandaty`.`kierowcy` FROM 'olaf'@'localhost'
