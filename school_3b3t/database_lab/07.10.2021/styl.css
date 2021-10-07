@@ -1,0 +1,7 @@
+img{
+    padding:10px;
+}
+img:hover{
+    background-color: sandybrown;
+    transition: 0.5s;
+}
