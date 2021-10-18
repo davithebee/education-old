@@ -1,0 +1,27 @@
+Zad 1)
+
+SELECT COUNT(`ankieta`.`Imie`) as `liczba_kobiet`, (SELECT COUNT(`ankieta`.`Imie`) FROM `ankieta` WHERE `ankieta`.`Imie` NOT LIKE '%a') as `liczba_mezczyzn`
+FROM `ankieta`
+WHERE `ankieta`.`Imie` LIKE '%a'
+
+Zad 2)
+
+SELECT `lokata`.`Srod_lok`, COUNT(`Id_ank`)
+FROM `lokata`
+INNER JOIN `ankieta`
+ON `lokata`.`Id_ank` = `ankieta`.`Id`
+WHERE `ankieta`.`Wojewodztwo` = 'mazowieckie' AND `lokata`.`Pora_roku` = 'lato'
+GROUP BY `lokata`.`Srod_lok`
+
+Zad 3)
+
+SELECT `ankieta`.`Wojewodztwo`, COUNT(`ankieta`.`Id`)
+FROM `ankieta`
+GROUP BY `ankieta`.`Wojewodztwo`
+HAVING COUNT(`ankieta`.`id`) > 20
+
+Zad 4)
+
+SELECT DISTINCT `ankieta`.`Imie`, `ankieta`.`Nazwisko`, `ankieta`.`Wojewodztwo`
+FROM `ankieta`
+WHERE `ankieta`.`Wiek` > 50 AND `ankieta`.`Id` NOT IN (SELECT `Id_ank` FROM `zainteresowania` WHERE `zainteresowania` IN ('informatyka', 'gry komputerowe')) AND `ankieta`.`Wyksztalcenie` IN ('wyzsze', 'srednie')
