@@ -28,8 +28,4 @@ WHERE `ankieta`.`Wiek` > 50 AND `ankieta`.`Id` NOT IN (SELECT `Id_ank` FROM `zai
 
 Zad 5)
 
-SELECT AVG(DISTINCT `ankieta`.`Dochod`)
-FROM `ankieta`
-INNER JOIN `lokata`
-ON `lokata`.`Id_ank` =  `ankieta`.`Id`
-WHERE `Wojewodztwo` = "zachodniopomorskie" AND `lokata`.`Srod_lok` = "rower" AND `ankieta`.`Imie` LIKE '%a'
+SELECT AVG(`ankieta`.`Dochod`) FROM `ankieta` WHERE `Wojewodztwo` = "zachodniopomorskie" AND `ankieta`.`Id` IN (SELECT `lokata`.`Id_ank` FROM `lokata` WHERE `lokata`.`Srod_lok` = "rower") AND `ankieta`.`Imie` LIKE '%a'
