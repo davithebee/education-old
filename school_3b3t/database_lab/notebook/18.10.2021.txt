@@ -25,3 +25,11 @@ Zad 4)
 SELECT DISTINCT `ankieta`.`Imie`, `ankieta`.`Nazwisko`, `ankieta`.`Wojewodztwo`
 FROM `ankieta`
 WHERE `ankieta`.`Wiek` > 50 AND `ankieta`.`Id` NOT IN (SELECT `Id_ank` FROM `zainteresowania` WHERE `zainteresowania` IN ('informatyka', 'gry komputerowe')) AND `ankieta`.`Wyksztalcenie` IN ('wyzsze', 'srednie')
+
+Zad 5)
+
+SELECT AVG(DISTINCT `ankieta`.`Dochod`)
+FROM `ankieta`
+INNER JOIN `lokata`
+ON `lokata`.`Id_ank` =  `ankieta`.`Id`
+WHERE `Wojewodztwo` = "zachodniopomorskie" AND `lokata`.`Srod_lok` = "rower" AND `ankieta`.`Imie` LIKE '%a'
